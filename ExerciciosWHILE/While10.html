@@ -1,0 +1,40 @@
+<!-- 10. Crie um programa o qual: 
+
+a) Solicite um intervalo crescente de valores numéricos  
+
+b) Ao clicar num botão "S2 Pares"... 
+
+c) Exiba, debaixo do botão, todos os números pares contidos no intervalo. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Intervalo inicial: <input type="number" id="input_inicial"><br>
+    Intervalo final: <input type="number" id="input_final"><br>
+    <button onclick="calcular()">S2 Pares</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var numero = Number(input_inicial.value)
+        var numeroFinal = Number(input_final.value)
+        exibir.innerHTML = ""
+
+        while (numero <= numeroFinal) {
+            exibir.innerHTML += `${numero}<br>`
+            numero += 2
+        }
+    }
+
+
+
+</script>

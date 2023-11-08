@@ -1,0 +1,39 @@
+<!-- 4. Crie um programa o qual: 
+
+a) Ao clicar num botão "S2 Pares"...
+
+b) Exiba, debaixo do botão, todos os números pares de 0 a 100, um embaixo do outro  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>S2 PARES</h1>
+
+    <button onclick="verificar()">S2 pares</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function verificar() {
+
+        for (var contador = 1; contador <= 100; contador += 1) {
+            if (contador % 2 == 0) {
+                exibir.innerHTML += `${contador}<br>`
+            }
+
+
+        }
+
+    }
+
+</script>

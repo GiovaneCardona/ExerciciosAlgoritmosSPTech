@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Sua temperatura corporal:<br>
+    <input type="number" id="input_temperatura"><br>
+    <button onclick="verificar()">Analisar temperatura</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function verificar() {
+        var temperatura = Number(input_temperatura.value)
+
+        if (temperatura < 14) {
+            exibir.innerHTML = `Temperatura congelante, não é saudavel`
+        } else if (temperatura <= 21) {
+            exibir.innerHTML = `Temperatura fria`
+        } else if (temperatura <= 24) {
+            exibir.innerHTML = `Temperatura confortável`
+        } else if (temperatura <= 31) {
+            exibir.innerHTML = `Temperatura quente`
+        } else {
+            exibir.innerHTML = `Calor escaldante!! cuidado!`
+        }
+    }
+
+
+
+</script>

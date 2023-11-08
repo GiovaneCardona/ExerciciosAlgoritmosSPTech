@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Limite inferior da amostragem:<Br> <input type="number" id="input_inferior"><br>
+    Limite superior da amostragem: <br> <input type="number" id="input_superior"><br>
+    Numero para testar divisibilidade:<br><input type="number" id="input_divisi">
+    <button onclick="analisar()">Contar</button><br>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var inferior = Number(input_inferior.value);
+        var superior = Number(input_superior.value);
+        var divisibilidade = Number(input_divisi.value);
+        var numero = 1;
+        exibir.innerHTML = ""
+        var totalnumeros = 0;
+        var somatotal = 0;
+        var medianumeros = 0;
+        var maior = 0;
+        var menor = 0;
+
+        if (inferior < 1 || superior > 100 || divisibilidade < 3 || divisibilidade > 10 || inferior >= superior) {
+
+            alert("Intervalo de números ou divisor inválidos ")
+        } else {
+
+            while (inferior <= superior) {
+                
+                if (inferior % divisibilidade == 0) {
+                    exibir.innerHTML += `${inferior}, `
+
+
+                    if (totalnumeros == 0) {
+                        menor = inferior
+                    }
+
+                    maior = inferior
+                    medianumeros = somatotal / totalnumeros
+                    somatotal += inferior
+                    totalnumeros += 1
+                }
+                inferior += 1
+                numero += 1
+            }
+            exibir.innerHTML +=
+                `<br><br>QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${totalnumeros} <br><br>
+        SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somatotal}<br><br>
+         MÉDIA DOS NÚMEROS EXIBIDOS: ${medianumeros}<br><Br>
+         MAIOR NÚMERO EXIBIDO: ${maior}<br><Br>
+         MENOR NÚMERO EXIBIDO: ${menor}`
+        }
+    }
+</script>

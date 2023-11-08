@@ -1,0 +1,41 @@
+<!-- 18. Crie um programa no qual: 
+
+a) O usuário informe quantas "Coca-Cola" ele acha que já bebeu na vida 
+
+b) Ao clicar em "Ver a quantidade", devem aparecer na tela N garrafinhas (ou latas, se preferir) de "Coca-Cola" uma ao lado da outra,
+ conforme a quantidade informada em a) 
+
+c) Para saber se seu programa está correto, teste algo assim: informe 20 e clique. Depois informe só 3 e clique novamente. 
+Veja se vão aparecer só 3 garrafinhas (ou latas) na tela.  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas Coca-colas você ja tomou na vida?<Br><input type="number" id="input_coca"><br>
+        <button onclick="verificar()" >Ver a quantidade</button><br>
+        <div id="exibir"></div>
+        
+</body>
+</html>
+<script>
+function verificar(){
+var numero = 1;
+var coca = Number(input_coca.value);
+
+exibir.innerHTML = ""
+
+while(numero <= coca){
+
+exibir.innerHTML += `<span style = "margin: 10px; width: 20px;" ><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj4ByhdvPxTw3nEA9e-9soV-TBarOzqCQ_cV_
+    MxCu3fHVvnH0IXA4vJDFwH247urFXZs0&usqp=CAU"</span>`
+
+    numero++;
+}
+}
+</script>

@@ -1,0 +1,40 @@
+<!-- 10. Crie um programa o qual: 
+
+a) Solicite um intervalo crescente de valores numéricos  
+
+b) Ao clicar num botão "S2 Pares"... 
+
+c) Exiba, debaixo do botão, todos os números pares contidos no intervalo. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira limite inferior do intervalo: <br>
+    <input type="number" id="input_inferior"> <br>
+    Insira limite superior do intervalo: <br>
+    <input type="number" id="input_superior"><br>
+    <button onclick="analisar()">S2 pares</button> <br>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        exibir.innerHTML = ""
+        var inferior = Number(input_inferior.value);
+        var superior = Number(input_superior.value);
+
+        for (var i = inferior; i <= superior; i++) {
+            if (i % 2 == 0) {
+                exibir.innerHTML += `${i}<br>`
+            }
+        }
+    }
+</script>

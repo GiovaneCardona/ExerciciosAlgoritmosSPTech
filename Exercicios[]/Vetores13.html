@@ -1,0 +1,105 @@
+<!-- a) Cadastre a campanha de um time de futebol num campeonato da seguinte forma: 
+
+a.1) Tenha um 'combo' identificado com o texto "Indique o resultado" com os itens: 
+
+  Vitória 
+
+  Empate 
+
+  Derrota 
+
+b) Ao clicar num botão "Registrar jogo", o resultado escolhido em a) é registrado em um local invisível ao usuário e um texto abaixo é exibido (ou atualizado). O texto é como este: 
+
+      O time teve: V vitórias, E empates, D derrotas 
+
+      Pontuação total: X pontos 
+
+      Aproveitamento: Y% 
+
+Em que X é calculado assim: Cada vitória (V) vale 3 pontos. Cada empate (E) vale 1 ponto. Cada derrota (D) vale 0 pontos. 
+
+O Y é o total de pontos conquistados (X) dividido pelo total de pontos possíveis (ou seja, considerando que tivesse vencido todos os jogos) vezes 100. 
+
+c) Deve haver um campo "Indique qual jogo deseja saber o resultado". Na medida em que vai digitando, aparece um texto, abaixo do texto de b) como este: 
+
+  No XXº jogo, o time Ganhou (ou "Perdeu" ou "Empatou") 
+
+ou um texto como este, caso o valor seja de um jogo que não foi cadastrado: 
+
+  Não foi cadastrado um XXº jogo 
+
+
+
+Obs: Neste item considere que o usuário ache que 1 indica o 1º jogo. Ou seja, o usuário não imagina que o 1º é o jogo "0" na verdade.  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Indique o resultado:
+    <select id="select_resultado">
+        <option value="vitoria">Vitória</option>
+        <option value="empate">Empate</option>
+        <option value="derrota">Derrota</option>
+    </select>
+    <button onclick="verificar()">Registrar jogo</button><BR>
+    <div id="exibir"></div>
+    Indique qual jogo deseja saber o resultado: <br>
+    <input id="input_jogo" onkeyup="analisar()"><br>
+    <div id="exibir2"></div>
+</body>
+
+</html>
+<script>
+    var lista = []
+    function verificar() {
+        exibir.innerHTML = ""
+        var contagemEmpate = 0
+        var contagemVitória = 0
+        var contagemDerrota = 0
+        var resultado = select_resultado.value;
+        lista.push(resultado);
+
+        for (var i = 0; i < lista.length; i++) {
+            if (lista[i] == 'vitoria') {
+                contagemVitória += 1;
+            }
+            else if (lista[i] == 'empate') {
+                contagemEmpate += 1;
+            }
+            else {
+                contagemDerrota += 1;
+            }
+        }
+        var somaTotal = contagemVitória * 3 + contagemEmpate;
+        var Aproveitamento = somaTotal / (lista.length * 3) * 100;
+
+exibir.innerHTML +=
+         `O time teve: ${contagemVitória} vitórias, ${contagemEmpate} empates, ${contagemDerrota} derrotas <Br>
+
+        Pontuação total: ${somaTotal} pontos <br>
+
+        Aproveitamento: ${Aproveitamento}% <br><br>`
+
+    }
+    function analisar(){
+        var jogo = Number(input_jogo.value);
+        exibir2.innerHTML = ""
+
+        if(jogo == 0){
+            exibir2.innerHTML = "Esse jogo não existe!"
+        }else if(jogo > lista.length){
+
+            exibir2.innerHTML = "Você ainda não teve este jogo"
+        }else {
+            exibir2.innerHTML += `No ${jogo}º jogo, o time teve: ${lista[jogo-1]}`
+        }
+
+    
+    }
+</script>

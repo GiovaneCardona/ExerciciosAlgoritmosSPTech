@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3 - If - Else</title>
+</head>
+<body>
+        <h1>Mercado BOM DOCE</h1>
+        Quantos chocolates vocÃª comprou:<input id="input_chocolate" type="number"><br>
+        <button onclick="comprinha()"> Compra</button>
+        <div id="div_choco"></div> 
+</body>
+</html>
+
+<script>
+    function comprinha(){
+        var chocolate = Number(input_chocolate.value);
+
+        if(chocolate>12){
+            var valor = chocolate*2.5;
+            div_choco.innerHTML = `O valor da sua compra foi de R$${valor}`
+        }else{
+            var valor = chocolate*3;
+            div_choco.innerHTML = `O valor da sua compra foi de R$${valor}`
+        }
+    }
+</script>

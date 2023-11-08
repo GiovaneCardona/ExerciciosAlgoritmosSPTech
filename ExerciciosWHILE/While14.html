@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Sua idade: <br><input type="text" onkeyup="analisar()" id="input_idade"><br>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+
+        var numero = 1;
+        var idade = Number(input_idade.value);
+        exibir.innerHTML = "0 anos (Primeira Infância)<br> "
+
+        while (numero <= idade) {
+            if (numero <= 4) {
+                exibir.innerHTML += `${numero} anos (Primeira Infância)<br>`
+            } else if (numero <= 6) {
+                exibir.innerHTML += `${numero} anos (Pré escolar)<br>`
+            } else if (numero <= 10) {
+                exibir.innerHTML += `${numero} anos (Segunda infância)<br>`
+            } else if (numero <= 18) {
+                exibir.innerHTML += `${numero} anos (Adolescência)<br>`
+            } else if (numero <= 50) {
+                exibir.innerHTML += `${numero} anos (Adulto)<br>`
+            } else if (numero <= 100) {
+                exibir.innerHTML += `${numero} anos (Melhor idade)<br>`
+            } else {
+                exibir.innerHTML += `${numero} anos (Matusalém)<br>`
+            }
+
+
+            numero++
+        }
+
+    }
+</script>

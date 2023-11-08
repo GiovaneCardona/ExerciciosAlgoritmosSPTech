@@ -1,0 +1,71 @@
+<!-- 2. Crie um programa o qual: 
+
+a) Tenha um campo "Destino de viagem" e um botão "Adicionar";
+
+b) Ao clicar no botão, esse destino deve ser adicionado a uma lista (que não aparece para o usuário). 
+
+Obs: Não existe problema em serem registrados valores repetidos.
+
+c) Devem haver os botões: 
+
+  "Primeira viagem" - Ao ser clicado, aparece abaixo o primeiro local cadastrado ou "Ainda não viajou" - caso nenhuma (zero viagens) viagem tenha sido registrada;
+
+  "Terceira viagem" - Ao ser clicado, aparece abaixo o terceiro local cadastrado ou "Ainda fez a terceira viagem", caso não tenha feito, ao menos, três viagens;
+
+  "Última viagem" - Ao ser clicado, aparece abaixo o último local cadastrado ou "Ainda não viajou", caso nenhuma (zero viagens) viagem tenha sido registrada. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Destino de viagem: <br>
+    <input type="text" id="input_viagem"> <br>
+    <button onclick="verificar()">Adicionar</button> <br>
+    <button onclick="Primeira()">Primeira viagem</button> <br>
+    <button onclick="Terceira()">Terceira viagem</button> <br>
+    <button onclick="Ultima()">Ultima viagem</button> <br>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    var listaViagens = []
+    function verificar() {
+        var viagens = input_viagem.value;
+        listaViagens.push(viagens);
+    }
+    function Primeira() {
+        if (listaViagens.length == 0) {
+            exibir.innerHTML = `Ainda não viajou!!!`
+        }
+        else {
+            exibir.innerHTML = `Primeira viagem: ${listaViagens[0]}`
+        }
+    }
+    function Terceira() {
+
+        if (listaViagens.length > 2) {
+            exibir.innerHTML = `Terceira viagem: ${listaViagens[2]}`
+        }
+        else {
+            exibir.innerHTML = `Ainda não fez terceira viagem!`
+        }
+    }
+    function Ultima() {
+
+        if (listaViagens.length == 0) {
+            exibir.innerHTML = `Ainda não viajou!!!`
+        }else{
+            exibir.innerHTML = `Ultima Viagem : ${listaViagens[listaViagens.length - 1]}`
+        }
+
+
+    }
+
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantas latinhas por dia vc toma? <input id="input_latinhadia"><br>
+    <button onclick="qtdrefri()">Quantos refris? </button>
+    <div id="refrizin"> </div>
+    <input type="text" name="" id="">
+</body>
+
+</html>
+<script>
+    function qtdrefri() {
+        var refridia = Number(input_latinhadia.value)
+        var refriAno = refridia * 365
+        if (refriAno < 500) {
+            refrizin.innerHTML = `Você consome ${refriAno} latinhas por ano!!<br> `
+
+        }
+        if (refriAno >= 500) {
+            refrizin.innerHTML = `Você consome ${refriAno} latinhas por ano!!<br>
+            Cuidado com a diabetes!!`
+        }
+
+
+    }
+
+
+
+
+</script>

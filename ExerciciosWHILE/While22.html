@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantos depósitos você fez no banco?<bR>
+    <input type="number" id="input_depositos"><br>
+
+    Qual é o valor de cada depósito?<br>
+    <input type="number" id="input_valor"><Br>
+
+    <button onclick="verificar()">Acompanhar Grana</button><br>
+
+    <div id="exibir"></div>
+
+</body>
+
+</html>
+<script>
+    function verificar() {
+        var numero = 1;
+        var depositos = Number(input_depositos.value);
+        var valor = Number(input_valor.value);
+        var valortotal = 0;
+        exibir.innerHTML = ""
+
+
+        while (numero <= depositos) {
+
+            valortotal += valor 
+
+            if (numero % 3 == 0) {
+                valortotal = valortotal * 0.01 + valortotal
+                exibir.innerHTML += `${numero}º Mês: R$ ${valortotal.toFixed(2)} <img style = "width: 10px;" src =
+                     "https://img.freepik.com/vetores-gratis/estrela-de-metal-3d-isolada_1308-117760.jpg"<Br><bR>`
+            }
+            else {
+
+                exibir.innerHTML += `${numero}º Mês: R$ ${valortotal.toFixed(2)}<BR>`
+            }
+
+            numero++;
+        }
+        exibir.innerHTML += `Total Guardado: R$ ${valortotal.toFixed(2)}`
+    }
+</script>

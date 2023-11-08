@@ -1,0 +1,29 @@
+<!-- a) Tenha um botão "Diga algo sobre a matéria de Algoritmos", que ao ser clicado ...
+
+b) Mostre na própria página 7 vezes uma frase a sua escolha, uma abaixo da outra. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="executar()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    exibir.innerHTML = ``
+    var numero = 1
+    function executar() {
+        while (numero <= 7) {
+            exibir.innerHTML += `Algoritmos eh pica!!<br>`
+            numero += 1
+        }
+    }
+</script>

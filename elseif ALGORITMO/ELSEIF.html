@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira seu numero:
+    <input type="number" name="" id="input_numero">
+    <button onclick="verificar()">Ver numero</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function verificar() {
+        var numero = Number(input_numero.value)
+
+        if (numero < 25) {
+            exibir.innerHTML = "O número é menor que 25"
+        }
+
+
+        else if (numero <= 50) {
+            exibir.innerHTML = "O número está entre 25 e 50"
+        }
+        else if (numero <= 75) {
+
+            exibir.innerHTML = "O número está entre 50 e 75"
+
+        } else {
+            exibir.innerHTML = "O número é 76 ou maior"
+        }
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+</script>

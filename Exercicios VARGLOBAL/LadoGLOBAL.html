@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="imagem" width="200" style="margin-left: 0;" src="https://media.tenor.com/vY7YNbq-d5kAAAAC/incoming-heading-out.gif" alt=""><br>
+    <button onclick="esquerda()">Mover para a esquerda</button>
+    <button onclick="direita()">Mover para a direita</button><br>
+    Quantos pixels mover: <input type="number" id="input_pixels"> <button onclick="atualizar()" >Confirmar pixels</button><br>
+
+</body>
+</html>
+<script>
+    var pixels = 0;
+    var confirma = 0;
+    
+    function atualizar(){
+pixels = Number(input_pixels.value)       
+}
+    function esquerda() {
+        confirma -= pixels;
+        imagem.style.marginLeft = confirma + "px"
+
+    }
+    function direita() {
+        confirma += pixels;
+        imagem.style.marginLeft = confirma + "px"
+        
+        }
+        
+</script>

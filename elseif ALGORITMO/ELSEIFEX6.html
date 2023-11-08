@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qual time vc torce?:<br>
+    <input type="text" id="input_time"><br>
+    <button onclick="avaliar()" >Fale sobre esse time</button>
+    <div id="exibir" ></div>
+
+</body>
+</html>
+<script>
+function avaliar(){
+var time = input_time.value
+
+if (time == "corinthians"){
+exibir.innerHTML = `<span style="background-color: black;color: white;" >Salve o Corinthians</span>`
+
+}else if (time == "palmeiras"){
+
+    exibir.innerHTML = `<span style="background-color: green; black;color: white;" >Salve o alviverde imponente</span>`
+}else if (time == "santos"){
+    exibir.innerHTML = `<span style="background-color: white; black;color: black;" >Agora quem dá a bola é o Santos</span>`
+}else if (time == "sao paulo"){
+    exibir.innerHTML = `<span style="background-color: black; black;color: red;" >Salve o tricolor Paulista</span>`
+}else
+exibir.innerHTML = `<span style="background-color: red; black;color: white;" >Escolha um time GRANDE de SÃO PAULO</span>`
+
+}
+
+
+
+</script>

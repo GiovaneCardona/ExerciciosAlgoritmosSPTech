@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantas voltas o carro dará na corrida?: <input type="number" id="input_voltas"><br>
+    <button onclick="verificar()">Iniciar Corrida!</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    
+    function verificar() {
+        var numero = 1
+        var voltas = Number(input_voltas.value);
+        exibir.innerHTML = ""
+
+        while (numero <= voltas) {
+            exibir.innerHTML += ` Carro dando a ${numero}ª volta<br>`
+            numero++;
+        }
+            exibir.innerHTML += "Corrida finalizada!"
+    }
+</script>

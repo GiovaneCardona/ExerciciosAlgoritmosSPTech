@@ -1,0 +1,177 @@
+<!-- Fábio tem um quiosque de coco, ele vende somente "Água engarrafada" e "Coco fechado", faça um programa para auxiliá-lo no controle 
+    de suas vendas.
+
+a) Após inserir os valores de "Água engarrafada" e "Coco fechado" e clicar no botão "Abrir o quiosque", valide as quantidades da 
+seguinte forma:
+
+    a.1) Se a quantidade de "Água engarrafada" for menor que 100, exiba a mensagem "Com essa quantidade de Água engarrafada não
+     dá para abrir o quiosque" e não faça mais nada;  
+
+    a.2) Se a quantidade de "Coco fechado" for menor que 200, exiba a mensagem "Com essa quantidade de Coco fechado não dá para
+     abrir o quiosque" e não faça mais nada;
+
+    a.3) Se a quantidade de "Água engarrafada" estiver entre 100 e 1000, exiba a mensagem "Engarrafe mais água de coco" e siga
+     para a validação a.4);
+
+    a.4) Se a quantidade de "Coco fechado" estiver entre 200 e 2000, exiba também a mensagem "Compre mais cocos" e siga para o item b).
+
+
+
+b) Se as validações passarem, atualize o estoque inicial dos dois produtos no sistema e atualize também a mensagem que mostra
+ esses estoques na tela.
+
+
+
+c) Ao preencher os campos para registrar venda e clicar em "Registrar a Venda" faça o seguinte:
+
+    c.1) Exiba a seguinte mensagem (não deve apagar as anteriores):  
+
+        "Com a venda de XXXX de YYYY o saldo no estoque é de ZZZZ",  
+
+    OBS:  
+        XXXX é a quantidade de produto vendido;
+
+        YYYY é o produto que foi vendido;
+
+        ZZZZ é o estoque atual do produto;
+
+
+
+d) Ao clicar no botão "Encerrar o Turno" faça:
+
+    d.1) Apague todas as mensagens na página; 
+
+    d.2) Exiba as seguintes mensagens: 
+
+
+
+        Vendas de Água engarrafada
+
+        Saldo de produto no estoque: XXXX 
+
+        Quantidade de vendas: YYYY
+
+        Porcentagem das vendas: ZZZZ
+
+
+
+        Vendas de Coco fechado 
+
+        Saldo de produto no estoque: XXXX 
+
+        Quantidade de vendas: YYYY
+
+        Porcentagem das vendas: ZZZZ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Quiosque Mirosmar - Controle de vendas</h1>
+
+    <h2>---------Abertura do Quiosque---------</h2>
+
+    Quantidade de Águas engarrafadas no estoque: <br>
+    <input type="number" id="input_engarrafadas"><br>
+
+    Quantidade de cocos fechados no estoque: <br>
+    <input type="number" id="input_fechados"><br>
+    <button onclick="verificar()">Abrir o Quiosque</button>
+    <div id="exibir"></div>
+    <div id="exibir2"></div>
+
+
+</body>
+
+</html>
+<script>
+    var registro_coco = 0;
+    var registro_engarrafada = 0;
+    var registro1 = 0;
+    var registro2 = 0
+    function verificar() {
+        var engarrafadas = Number(input_engarrafadas.value);
+        var fechados = Number(input_fechados.value);
+
+        registro_coco = fechados
+        registro_engarrafada = engarrafadas
+
+        registro1 = engarrafadas
+        registro2 = fechados
+
+        exibir.innerHTML = ""
+        exibir2.innerHTML = ""
+        if (engarrafadas < 100) {
+            exibir2.innerHTML += `Com essa quantidade de Água engarrafada não dá para abrir o quiosque`
+
+        } else if (fechados < 200) {
+            exibir2.innerHTML += `Com essa quantidade de Coco fechado não dá para abrir o quiosque`
+        }
+
+        else {
+
+            exibir.innerHTML += `<h2>------Estoque Inicial------</h2><br>
+            Água Engarrafada: ${engarrafadas}<br>
+            Cocos fechados: ${fechados}<br><br>
+            
+            <h2>------Registro das operações de venda------</h2>
+            
+            Entre com a quantidade vendida: <input type="number" id="input_qtd_vendida"> 
+            Informe o produto vendido: <select name = "vendido" id="id_vendido">
+                <option value = "Agua engarrafada">Água engarrafada</option>
+                <option value = "Coco fechado">Côco fechado</option>
+                </select><button onclick="registrar()">Registrar venda</button>
+                <button style="background-color: red;" onclick="encerrar()">Encerrar Turno</button><br><Br>
+
+            `
+            
+
+            if (engarrafadas <= 1000) {
+                exibir.innerHTML += `Engarrafe mais água de coco<br><br>`
+            }
+            if (fechados <= 2000) {
+                exibir.innerHTML += `Compre mais cocos<br><br>`
+
+            }
+
+        }
+    }
+    function registrar() {
+        var qtdVendida = Number(input_qtd_vendida.value);
+        var opção = id_vendido.value;
+
+
+        if (opção == "Coco fechado") {
+            exibir2.innerHTML += `Com a venda de ${qtdVendida} de ${opção} o saldo no estoque é de ${registro_coco -= qtdVendida}<br>`
+        }
+        if (opção == "Agua engarrafada") {
+            exibir2.innerHTML += `Com a venda de ${qtdVendida} de ${opção} o saldo no estoque é de ${registro_engarrafada -= qtdVendida}<br>`
+        }
+
+
+
+    }
+    function encerrar() {
+        exibir2.innerHTML = ""
+
+        exibir.innerHTML += `<b>Vendas de água engarrafada<br>
+            Saldo de produto no estoque: ${registro_engarrafada}<br>
+            Quantidade de vendas: ${registro1 - registro_engarrafada}<br>
+            Porcentagem de vendas: ${registro_engarrafada = registro1 * 0.01 }%</b><br><br>`
+
+            exibir.innerHTML += `<b>Vendas de Cocos fechados<br>
+            Saldo de produto no estoque: ${registro_coco}<br>
+            Quantidade de vendas: ${registro2 - registro_coco}<br>
+            Porcentagem de vendas: %</b>`
+    }
+
+
+</script>

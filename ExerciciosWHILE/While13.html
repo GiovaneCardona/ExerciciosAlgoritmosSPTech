@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    De quantos em quantos dias você faz academia? <input type="number" id="input_dias"><br>
+    <button onclick="analisar()">Exibir rotina mensal</button><br>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var numero = 1
+        var dias = Number(input_dias.value);
+        exibir.innerHTML = "Dia 1 - Musculação<br>"
+        while (numero  <= 29) {
+            if (numero % dias == 0) {
+                exibir.innerHTML += `Dia ${numero+1} - Musculação<br>`
+            } else {
+                
+                exibir.innerHTML += `Dia ${numero+1} - Comer, dormir etc...<br>`
+            }
+            numero++;
+        }
+    }
+</script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nome do passageiro: <input id="input_nome"><br>
+    Distância da corrida (em km): <input id="input_distancia"><br>
+    Bandeira da corrida: <input type="number" id="input_bandeira"><br>
+    Horário da corrida: <input type="number" id="input_horario"><br>
+    <button onclick="calculo()">Calcular corrida</button>
+    <div id="div_corridinha"></div>
+</body>
+
+</html>
+<script>
+    function calculo() {
+        var nome = (input_nome.value);
+        var distancia = Number(input_distancia.value)
+        var bandeira = Number(input_bandeira.value)
+        var horario = Number(input_horario.value)
+        var total 
+        if (bandeira == 1) {
+            if (horario > 0) {
+                if (horario <= 6) {
+                    total = (distancia * 1.25);
+                    total = (total * 0.05) + total;
+                }
+            }
+        }
+        if (horario > 7) {
+            if (horario <= 12) {
+                total = (distancia * 1.25);
+                total = (total * 0.1) + total;
+            }
+        }
+        if (horario > 13) {
+            if (horario <= 23) {
+                total = (distancia * 1.25);
+                total = (total * 0.15) + total;
+            }
+        }
+        if (bandeira == 2) {
+            if (horario > 0) {
+                if (horario <= 6) {
+                    total = (distancia * 1.25)
+                    total = (total * 0.1) + total;
+                }
+            }
+        }
+        if (horario > 7) {
+            if (horario <= 12) {
+                total = (distancia * 1.25);
+                total = (total * 0.2) + total;
+            }
+
+
+        }
+        if (horario > 13) {
+            if (horario <= 23) {
+                total = (distancia * 1.25);
+                total = (total * 0.3) + total;
+
+
+            }
+        }
+
+        if (bandeira == 3) {
+       if (horarioCorrida > 0) {
+        if (horarioCorrida <= 6)  {
+       total = (distancia * 1.25);
+       total = (total * 0.15)+total;
+       }
+    }
+
+       if (horario > 7) {
+        if (horario <= 12)  {
+       total = (distancia * 1.25);
+       total = (total * 0.30)+total;
+       }
+    }
+
+       if (horario > 13) {
+        if (horario <= 23)  {
+       total = (distancia * 1.25);
+       total = (total*0.45)+total;
+       }
+    }
+}
+div_corridinha.innerHTML = `Olá ${nome} Sua corrida, será na bandeira ${bandeira}, percorrerá ${distancia} km e o total da corrida será de ${total}`
+
+
+
+    }
+</script>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria Valdossin</title>
+</head>
+
+<body>
+    <h1>Quantidade de doces</h1>
+
+    Quantos Macarons você quer comprar? <Br>
+    <input type="text" id="input_macarons"><Br>
+
+    Quantos Brigadeiros Gourmet você quer comprar?<Br>
+    <input type="text" id="input_brigadeiros"><Br>
+
+    Quantos Cupcakes você quer comprar?<br>
+    <input type="text" id="input_cupcakes"><br>
+
+    Quantos Cheesecakes você quer comprar? <br>
+    <input type="text" id="input_cheesecakes"><br><br>
+
+    <h1>Preço</h1>
+
+    Preço Macaron: <br>
+    <input type="number" id="input_preço_macaron"><br>
+    Preço Brigadeiro Gourmet: <br>
+    <input type="number" id="input_preço_brigadeiro"><br>
+    Preço Cupcake: <Br>
+    <input type="number" id="input_preço_cupcakes"><br>
+    Preço Cheesecake: <br>
+    <input type="number" id="input_preço_cheesecakes"><br>
+
+    <button onclick="verificar()">Verificar vendas</button><br><br><br>
+    <div id="exibir"></div>
+
+
+</body>
+
+</html>
+<script>
+    function verificar() {
+        var qtdMacarons = Number(input_macarons.value);
+        var qtdBrigadeiros = Number(input_brigadeiros.value);
+        var qtdCupcakes = Number(input_cupcakes.value);
+        var qtdCheesecake = Number(input_cheesecakes.value);
+        var preçoMacarons = Number(input_preço_macaron.value);
+        var preçoBrigadeiro = Number(input_preço_brigadeiro.value);
+        var preçoCupcakes = Number(input_preço_cupcakes.value);
+        var preçoCheeseCakes = Number(input_preço_cheesecakes.value);
+
+
+        exibir.innerHTML = ""
+
+        if (qtdMacarons < 0 || qtdCupcakes < 0 || qtdCheesecake < 0 || qtdBrigadeiros < 0) {
+
+
+            alert("As quantidades e preços dos itens não podem ser negativos!!")
+
+
+        } else if (preçoMacarons <= 0 || preçoCupcakes <= 0 || preçoCheeseCakes <= 0 || preçoBrigadeiro <= 0) {
+
+            alert("O preço de algum dos itens está errado!!")
+
+        } else {
+            var contador = 0;
+            var contadorMacaron = 1;
+            var contadorBrigadeiro = 1;
+            var contadorCupcake = 1;
+            var contadorCheeseCake = 1;
+            var valortotal = 0;
+            var imgMacaron = `<img style="width: 50px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFKAF1bgPtdBFV6YnHhMD2HnM1KJQScSEohA&usqp=CAU" alt="">`
+            var imgBrigadeiro = `<img style="width: 50px;" src="https://t4.ftcdn.net/jpg/01/79/69/77/360_F_179697714_3qoAmMCdrFyODihzEFD72zXADjiYnNTg.jpg" alt="">`
+            var imgCupcake = `<img style="width: 50px; height: 40px; " src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/0fff5f03afb90bb990364a480f294cd7.jpg">`
+            var imgCheesecake = `<img style="width: 50px;" src="https://www.cozinhatecnica.com/wp-content/uploads/2014/10/cheesecake-tradicional-com-calda-de-morango-scaled.jpg">`
+
+            while (contadorMacaron <= qtdMacarons) {
+                contador += 1;
+                exibir.innerHTML += `<b>Venda - ${contador} ${imgMacaron} R$: ${preçoMacarons} </b><br>`
+
+                contadorMacaron += 1;
+                valortotal += preçoMacarons
+            }
+
+            while (contadorBrigadeiro <= qtdBrigadeiros) {
+                contador += 1;
+                exibir.innerHTML += `<b>Venda - ${contador} ${imgBrigadeiro} R$: ${preçoBrigadeiro}</b> <br>`
+
+                contadorBrigadeiro += 1;
+                valortotal += preçoBrigadeiro
+            }
+            while (contadorCupcake <= qtdCupcakes) {
+                contador += 1;
+                exibir.innerHTML += `<b>Venda - ${contador} ${imgCupcake} R$: ${preçoCupcakes}</b> <br>`
+
+                contadorCupcake += 1;
+                valortotal += preçoCupcakes
+            }
+            while (contadorCheeseCake <= qtdCheesecake) {
+                contador += 1;
+
+                exibir.innerHTML += `<b>Venda - ${contador} ${imgCheesecake} R$: ${preçoCheeseCakes} </b> <br>`
+
+                contadorCheeseCake += 1;
+                valortotal += preçoCheeseCakes
+            }
+
+            exibir.innerHTML += `<br><br><b>Com a quantidade de ${qtdMacarons} Macarons , ${qtdBrigadeiros} Brigadeiros, ${qtdCupcakes} Cupcakes e ${qtdCheesecake} Cheesecakes, a venda totalizará R$: ${valortotal}</b>`
+
+        }
+
+    }
+</script>

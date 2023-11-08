@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9 - IF - Else</title>
+</head>
+<body>
+        <h1>Metas - Economias</h1>
+        Qual a sua meta de economia: <input id="input_meta" type="number"><br>
+        Quanto você tem guardado: <input id="input_guardado" type="number"><br>
+
+        <button onclick="analisar()"> Analisar Economia</button>
+        <div id="div_analise"></div>
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var meta = Number(input_meta.value);
+        var economia = Number(input_guardado.value);
+
+        if(economia >= meta){
+            div_analise.innerHTML = `Parabéns, meta alcançada!<br>`
+            if(economia > meta){
+                div_analise.innerHTML += `Meta ultrapassada em ${economia-meta}!`
+            }
+        }else{
+            div_analise.innerHTML = `Força! Ainda em busca da meta! Falta ${meta-economia} de diferença` 
+        }
+    }
+</script>

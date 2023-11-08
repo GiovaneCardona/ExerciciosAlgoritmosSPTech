@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span style="color: blue; font-family: Verdana, Geneva, Tahoma, sans-serif;">Total guardado no cofrinho: R$<span
+            id="guardado">0</span> <Br>
+        Depósitos efetuados: <span id="qtdDepositos">0</span> <Br>
+        Retiradas efetuadas: <span id="qtdRetiradas">0</span><br>
+    </span>
+
+    <button onclick="mais50()">Depositar 0.50R$</button><br>
+    <button onclick="mais2()">Depositar 2R$</button><br>
+    <button onclick="menos50()">Retirar 0.50R$</button><Br>
+    <button onclick="menos()">Retirar</button><br>
+    Valor a retirar :<input type="number" id="input_valor"><Br>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    var depositos = 0;
+    var saldo = 0;
+    var retirada = 0;
+    var valor = 0
+
+    function mais50() {
+        depositos += 1
+        saldo += 0.50
+
+        qtdDepositos.innerHTML = `${depositos}`
+        guardado.innerHTML = `${saldo}`
+    }
+    function mais2() {
+        depositos += 1
+        saldo += 2
+
+        qtdDepositos.innerHTML = `${depositos}`
+        guardado.innerHTML = `${saldo}`
+    }
+    function menos50() {
+        retirada += 1
+        saldo -= 0.5
+
+        qtdRetiradas.innerHTML = `${retirada}`
+        guardado.innerHTML = `${saldo}`
+    }
+    function menos() {
+        valor = Number(input_valor.value)
+
+        retirada += 1
+
+        saldo -= valor
+
+        qtdRetiradas.innerHTML = `${retirada}`
+        guardado.innerHTML = `${saldo}`
+    }
+
+
+
+
+</script>

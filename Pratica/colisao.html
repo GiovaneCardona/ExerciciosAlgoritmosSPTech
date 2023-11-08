@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite os valores do primeiro retangulo: <br>
+    <input type="text" placeholder="x0" id="R1X0">
+    <input type="text" placeholder="y0" id="R1Y0">
+    <input type="text" placeholder="x1" id="R1X1">
+    <input type="text" placeholder="y1" id="R1Y1">
+    <br>
+    Digite os valores do segundo retangulo: <br>
+    <input type="text" placeholder="x0" id="R2X0">
+    <input type="text" placeholder="y0" id="R2Y0">
+    <input type="text" placeholder="x1" id="R2X1">
+    <input type="text" placeholder="y1" id="R2Y1"> <BR>
+    <button onclick="VerificarColisao()">Verificar Colisao</button>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function VerificarColisao() {
+        var x1 = Number(R1X0.value);
+        var y1 = Number(R1Y0.value);
+        var x2 = Number(R1X1.value);
+        var y2 = Number(R1Y1.value);
+
+        var x1_2 = Number(R2X0.value);
+        var y1_2 = Number(R2Y0.value);
+        var x2_2 = Number(R2X1.value);
+        var y2_2 = Number(R2Y1.value);
+
+        if (x1 <= x2_2) {
+     exibir.innerHTML = "1"
+    }else{
+        exibir.innerHTML = "0"
+    }
+    if (y1 <= y2_2 ){
+        exibir.innerHTML = "1"
+    }
+    else{
+        exibir.innerHTML = "0"
+    }
+    if (x1_2 <= x2){
+        exibir.innerHTML = "1"
+    }
+    else {
+exibir.innerHTML = "0"
+    }
+    if (y1_2 <= y2){
+        exibir.innerHTML = "1"
+    }
+    else{
+        exibir.innerHTML = "0"
+    }
+
+
+
+}
+
+
+</script>

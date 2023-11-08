@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantidade de chakra inicial: <br> <input type="number" id="input_chakraini"><br>
+    Quantidade de clones desejada: <br> <input type="number" id="input_clones"><br>
+    Quantos clones por linha deseja?<br> <input type="number" id="input_clones_linha"><br>
+    <button onclick="verificar()">Criar clones</button>
+    <div id="exibir"></div>
+
+
+
+</body>
+
+</html>
+<script>
+    function verificar() {
+        exibir.innerHTML = ""
+        var chakraini = Number(input_chakraini.value);
+        var clones = Number(input_clones.value);
+        var cloneLinha = Number(input_clones_linha.value);
+        var contador = 1;
+        var naruto = `<img style="width: 100px; margin: 10px;"  src="Naruto.jpg" alt="">`
+        var sobra = chakraini - clones * 20;
+        count = 0;
+
+        // validação de erro dos dados dos inputs
+
+        if (chakraini < 20 || chakraini > 5000 || clones < 0 || clones > 250 || cloneLinha <= 0) {
+            alert("ERRO NA ENTRADA DE DADOS - Energia tem que ser entre 20 e 5.000. Quantidade de Clones tem que ser entre 0 e 250. Quantidade de Clones por linha tem que ser maior que 0")
+        }
+        else if (clones * 20 > chakraini) {
+            alert("Você não tem chakra o suficiente para criar estes clones")
+        } else {
+
+
+            while (contador <= clones) {
+
+
+                if (count % cloneLinha == 0) {
+                    exibir.innerHTML += `<br>`
+                }
+
+
+                exibir.innerHTML += `${naruto}`
+                count += 1;
+                contador += 1;
+            }
+        }
+        
+
+        exibir.innerHTML += `<br>Chakra Inicial: ${chakraini}<br><br>
+                Quantidade de Clones: ${clones}<br><Br>
+                Sobra de Chakra: ${sobra}<br><Br>`
+
+        if (sobra < 1000 && clones < 50 && sobra * 0.2 <= chakraini) {
+            exibir.innerHTML += `TORÇA PARA O ADVERSÁRIO SER FRAQUINHO`
+        }
+        else if (sobra > 1000 || clones > 50 && sobra >= chakraini * 0.2) {
+
+            exibir.innerHTML += `PROVAVELMENTE VOCÊ VAI GANHAR!!`
+
+        } else if (sobra > 500 || clones >= 20 && clones <= 50 && sobra >= chakraini * 0.1) {
+
+            exibir.innerHTML += `VAI TER UMA LUTA INTERESSANTE!`
+        }
+
+    }
+</script>

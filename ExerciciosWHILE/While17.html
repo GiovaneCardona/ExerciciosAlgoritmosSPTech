@@ -1,0 +1,61 @@
+
+<!-- 17. Incremente a questão anterior de tal forma que: 
+
+a) Também tenha um campo no qual o usuário indique a capacidade de passageiros que o veículo suporta 
+
+b) Ao clicar no botão, as frases só começam a mostrar que o passageiro terá que esperar quando a capacidade indicada em a) for excedida. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carona</title>
+</head>
+
+<body>
+    Quantas pessoas vão entrar no carro?<br> <input type="number" id="input_pessoas"><br>
+    Qual é a capacidade máxima do carro?<br> <input type="number" id="input_maximo"><br>
+    <button onclick="analisar()">#Partiu Carona</button><br>
+    <div id="exibir"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        var contador = 1;
+        var pessoas = Number(input_pessoas.value);
+        var maximo = Number(input_maximo.value);
+
+        exibir.innerHTML = ""
+
+        while (contador <= pessoas) {
+
+            if (contador == 1) {
+                exibir.innerHTML += `Entrou o 1º passageiro (que é o(a) motorista)<br> `
+            } else if (contador <= maximo) {
+                exibir.innerHTML += `Entrou o ${contador}º Passageiro<Br>`
+            }else{
+                exibir.innerHTML += `O ${contador}º passageiro vai ter que esperar!!<br> `
+            }
+        
+
+            contador++;
+        }
+    }
+
+
+</script>
+</body>
+</html>
