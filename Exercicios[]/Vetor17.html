@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="display: block;" id="fase1">
+        <h1>Análise de performance de Alunos - Registro</h1>
+        Entre com o nome do aluno: <input type="text" id="input_aluno"> <br>
+        Entre com a Nota do aluno: <input type="text" id="input_nota"> <br>
+        <button onclick="registrar()">Registrar</button> <br>
+        <button onclick="analisar()">Analisar</button> <br>
+        <div id="exibir"></div>
+    </div>
+    <div style="display: none;" id="fase2">
+        <h1>Análise de performance de Alunos - Pesquisa</h1>
+        Entre com o intervalo de notas: <input type="text" placeholder="de" id="input_de"> <input type="text"
+            placeholder="até" id="input_ate"> <br>
+        <button onclick="pesquisar()">Pesquisar</button> <br>
+
+    </div>
+    <div id="exibir2"></div>
+</body>
+
+</html>
+<script>
+    var lista = [];
+    var listaNome = [];
+
+    function registrar() {
+        exibir.innerHTML = ""
+        var nota = Number(input_nota.value);
+        var nome = input_aluno.value;
+        if (nome == "") {
+            alert("O seu nome não pode estar vazio")
+        } else if (nota < 0 || nota > 10) {
+            alert("A nota está em um intervalo inválido")
+        } else {
+            lista.push(nota);
+            listaNome.push(nome);
+
+            for (var i = lista.length - 1; i >= 0; i--) {
+                exibir.innerHTML += `Nome: ${listaNome[i]} Nota:${lista[i]}<br>`
+            }
+        }
+    }
+    function analisar() {
+        fase1.style.display = "none";
+        fase2.style.display = "block";
+    }
+
+    function pesquisar() {
+        var contador = 0;
+        var de = Number(input_de.value);
+        var ate = Number(input_ate.value);
+        var maior = lista[0];
+        var menor = lista[0];
+        var total = 0
+
+        if (de < 0 || de > 10) {
+            alert("Intervalo de notas invalido!")
+        } else if (ate < 0 || ate > 10) {
+            alert("Intervalo de notas invalido!")
+        } else if (de > ate) {
+            alert("O numero inferior do intervalo não pode ser maior que o superior")
+        } else {
+
+            for (var i = 0; i < listaNome.length -1; i++) {
+                if (lista[i] >= de && lista[i] <= ate) {
+                    exibir2.innerHTML += `O aluno ${listaNome[i]} ficou com a nota ${lista[i]}<br>`
+                    contador++
+                    total += lista[i];
+                }
+                if (maior < lista[i]) {
+                    maior = lista[i]
+                }
+                if (menor > lista[i]) {
+                    menor = lista[i]
+                }
+            }
+
+            exibir2.innerHTML += `<br>Total de alunos registrados: ${lista.length}<br><Br>
+    
+    Total de alunos listado: ${contador} (com nota no intervalo informado) <br><br>
+    
+    Maior Nota:${maior} <br><br>
+    
+    Menor Nota: ${menor} <br><br>
+    
+    Média da Nota: ${total / contador} <br><br>`
+
+        }
+
+    }
+
+
+
+</script>
