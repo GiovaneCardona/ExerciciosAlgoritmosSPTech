@@ -1,0 +1,27 @@
+<!-- 4. Crie um programa o qual: 
+
+a) Ao clicar num botão "Sortear Nota para aluno", apareça na página mesmo um número aleatório,
+ entre 0 e 10 (podem ser sorteados números decimais, como 8.5, por exemplo). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()" >Sortear nota para aluno</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+
+function sortear(){
+var numeroAleatorio = Math.random() * 10
+
+exibir.innerHTML = `${numeroAleatorio.toFixed(1)}`
+
+}
+
+</script>
